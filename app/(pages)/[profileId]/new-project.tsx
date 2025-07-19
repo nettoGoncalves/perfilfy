@@ -1,18 +1,24 @@
 "use client";
 
+import { createProject } from "@/app/actions/create-project";
 import Button from "@/app/components/ui/button";
 import Modal from "@/app/components/ui/modal";
 import TextArea from "@/app/components/ui/text-area";
 import TextInput from "@/app/components/ui/text-input";
+import { compressFiles } from "@/app/lib/utils";
 import { ArrowUpFromLine, Plus } from "lucide-react";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { startTransition, useState } from "react";
 
 export default function newProject({ profileId }: { profileId: string }) {
+  const router = useRouter();
+
   const [isOpen, setIsOpen] = useState(false);
   const [projectName, setProjectName] = useState("");
   const [projectDescription, setProjectDescription] = useState("");
   const [projectUrl, setProjectUrl] = useState("");
   const [projectImage, setProjectImage] = useState("");
+  const [isCreatingProject, setIsCreatigProject] = useState(false);
 
   const handleOpenModal = () => {
     setIsOpen(true);
@@ -31,6 +37,37 @@ export default function newProject({ profileId }: { profileId: string }) {
     }
 
     return null;
+  }
+
+  async function handleCreateProject() {
+    setIsCreatigProject(true);
+
+    const imagesInput = document.getElementById(
+      "imageInput"
+    ) as HTMLInputElement;
+
+    if (!imagesInput.files) return;
+
+    const compressedFile = await compressFiles(Array.from(imagesInput.files));
+
+    const formData = new FormData();
+    formData.append("file", compressedFile[0]);
+    formData.append("profileId", profileId);
+    formData.append("projectName", projectName);
+    formData.append("projectDescription", projectDescription);
+    formData.append("projectUrl", projectUrl);
+
+    await createProject(formData);
+
+    startTransition(() => {
+      setIsOpen(false);
+      setIsCreatigProject(false);
+      setProjectName("");
+      setProjectDescription("");
+      setProjectUrl("");
+      setProjectImage("");
+      router.refresh();
+    });
   }
 
   return (
@@ -83,7 +120,11 @@ export default function newProject({ profileId }: { profileId: string }) {
                 <label htmlFor="project-name" className="text-white font-bold">
                   Titulo do projeto
                 </label>
-                <TextInput id="project-name" placeholder="Digite o projeto" onChange={(e) => setProjectName(e.target.value)}/>
+                <TextInput
+                  id="project-name"
+                  placeholder="Digite o projeto"
+                  onChange={(e) => setProjectName(e.target.value)}
+                />
               </div>
               <div className="flex flex-col gap-1">
                 <label
@@ -113,8 +154,15 @@ export default function newProject({ profileId }: { profileId: string }) {
             </div>
           </div>
           <div className="flex gap-4 justify-end">
-            <button className="font-bold text-white">Voltar</button>
-            <Button>Salvar</Button>
+            <button
+              className="font-bold text-white"
+              onClick={() => setIsOpen(false)}
+            >
+              Voltar
+            </button>
+            <Button onClick={handleCreateProject} disabled={isCreatingProject}>
+              Salvar
+            </Button>
           </div>
         </div>
       </Modal>

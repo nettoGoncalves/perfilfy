@@ -29,7 +29,7 @@ export default async function ProfilePage({
   // TODO: Se o usuário não estiver mais no trial, não deixar ele ver o projeto e direcionar para o upgrade.
 
   return (
-    <div className="relative h-screen flex p-20 overflow-hidden">
+    <div className="relative h-screen flex gap-5 p-20 overflow-hidden">
       <div className="fixed top-0 left-0 w-full flex justify-center items-center gap-1 py-2 bg-background-tertiary">
         <span>Você está usando a versão trial.</span>
         <Link href={`/${profileId}/upgrade`}>
