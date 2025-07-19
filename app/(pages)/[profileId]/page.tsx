@@ -1,6 +1,6 @@
 import ProjectCard from "@/app/components/commons/project-card";
 import { TotalVisits } from "@/app/components/commons/total-visits";
-import UserCard from "@/app/components/commons/user-card";
+import UserCard from "@/app/components/commons/user-card/user-card";
 import { auth } from "@/app/lib/auth";
 import {
   getProfileData,
@@ -43,7 +43,7 @@ export default async function ProfilePage({
         </Link>
       </div>
       <div className="w1/2 flex justify-center h-min">
-        <UserCard />
+        <UserCard profileData={profileData}/>
       </div>
       <div className="w-full flex justify-center content-start gap-4 flex-wrap overflow-y-auto">
         {projects.map(async (project) => (

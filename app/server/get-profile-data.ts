@@ -1,10 +1,25 @@
 import "server-only";
 import { db } from "../lib/firebase";
 
+export type Link = {
+  title: string;
+  url: string;
+};
+
 export type ProfileData = {
   userId: string;
   totalVisits: number;
   createdAt: number;
+  socialMedias?: {
+    github: string;
+    instagram: string;
+    linkedin: string;
+    twitter: string;
+  };
+  link1: Link;
+  link2: Link;
+  link3: Link;
+  updatedAt?: number;
 };
 
 export type ProjectData = {
