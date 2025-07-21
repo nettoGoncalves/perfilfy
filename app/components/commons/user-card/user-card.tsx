@@ -5,24 +5,27 @@ import Link from "next/link";
 import { ProfileData } from "@/app/server/get-profile-data";
 import AddCustomLink from "./add-custom-link";
 import { formatUrl } from "@/app/lib/utils";
+import EditUserCard from "./edit-user-card";
 
 export default function UserCard({
   profileData,
+  isOwner,
 }: {
   profileData?: ProfileData;
+  isOwner: boolean;
 }) {
   const links = {
-    link1:  {
-      title: profileData?.link1.title as string,
-      url: profileData?.link1.url as string
+    link1: {
+      title: profileData?.link1?.title as string,
+      url: profileData?.link1?.url as string,
     },
-    link2:  {
-      title: profileData?.link2.title as string,
-      url: profileData?.link2.url as string
+    link2: {
+      title: profileData?.link2?.title as string,
+      url: profileData?.link2?.url as string,
     },
-    link3:  {
-      title: profileData?.link3.title as string,
-      url: profileData?.link3.url as string
+    link3: {
+      title: profileData?.link3?.title as string,
+      url: profileData?.link3?.url as string,
     },
   };
 
@@ -40,6 +43,7 @@ export default function UserCard({
           <h3 className="text-3xl font-bold min-w-0 overflow-hidden">
             André Dev
           </h3>
+          {isOwner && <EditUserCard />}
         </div>
         <p className="opacity-40">"Eu faço produtos para a internet"</p>
       </div>
@@ -82,15 +86,9 @@ export default function UserCard({
               <Twitter />
             </Link>
           )}
-          {/* {icons.map((Icon, index) => (
-            <button
-              key={index}
-              className="p-3 rounded-xl bg-[#1E1E1E] hover:bg-[#2E2E2E]"
-            >
-              <Icon />
-            </button>
-          ))} */}
-          <EditSocialLinks socialMedias={profileData?.socialMedias} />
+          {isOwner && (
+            <EditSocialLinks socialMedias={profileData?.socialMedias} />
+          )}
         </div>
       </div>
       <div className="flex flex-col gap-3 w-full min-h-[172px]">
@@ -122,7 +120,7 @@ export default function UserCard({
               <Button className="w-full">{profileData?.link3.title}</Button>
             </Link>
           )}
-          <AddCustomLink links={links}/>
+          {isOwner && <AddCustomLink links={links} />}
         </div>
       </div>
     </div>

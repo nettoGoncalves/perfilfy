@@ -25,6 +25,7 @@ if (!getApps().length)
 
 export const db = getFirestore();
 
+
 export const storage = getStorage().bucket();
 
 export async function getDownloadUrlFromPath(path: string) {

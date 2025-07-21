@@ -12,7 +12,7 @@ export default function ProjectCard({
   project: ProjectData;
   isOwner: boolean;
   img: string;
-}) {
+}) {  
   const formattedUrl = formatUrl(project.projectUrl)
 
   function handleClick() {

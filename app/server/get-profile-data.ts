@@ -46,5 +46,5 @@ export async function getProfileProjects(profileId: string) {
     .collection("projects")
     .get();
 
-  return snapshot.docs.map((doc) => doc.data() as ProjectData[]);
+  return snapshot.docs.map((doc) => doc.data() as ProjectData);
 }
