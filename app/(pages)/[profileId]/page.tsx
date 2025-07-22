@@ -23,13 +23,10 @@ export default async function ProfilePage({
   if (!profileData) return notFound();
 
   const projects = await getProfileProjects(profileId);
-  console.log(projects);
 
   const session = await auth();
 
   const isOwner = profileData.userId === session?.user?.id;
-
-  console.log(profileData);
 
   // TODO: adicionar page view
 

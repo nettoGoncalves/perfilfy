@@ -24,7 +24,7 @@ export default function Hero() {
       </div>
       <div className="w-full flex items-center justify-center bg-[radial-gradient(circle_at_50%_50%,#4B2DBB,transparent_55%)]">
         <div className="relative">
-          <UserCard />
+          {/* <UserCard /> */}
           <div className="absolute -bottom-[7%] -right-[45%]">
             <TotalVisits />
           </div>
