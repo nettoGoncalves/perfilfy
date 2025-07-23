@@ -1,4 +1,4 @@
-"use server"
+"use server";
 
 import { randomUUID } from "crypto";
 import { auth } from "../lib/auth";
@@ -14,24 +14,26 @@ export async function createProject(formData: FormData) {
   const projectDescription = formData.get("projectDescription") as string;
   const projectUrl = formData.get("projectUrl") as string;
   const file = formData.get("file") as File;
-  
-  const generatedId = randomUUID()
 
-  const storageRef = storage.file(`projects-images/${profileId}/${generatedId}`)
-  const arrayBuffer = await file.arrayBuffer()
-  const buffer = Buffer.from(arrayBuffer)
-  await storageRef.save(buffer)
+  const generatedId = randomUUID();
 
-  const imagePath = storageRef.name
+  const storageRef = storage.file(
+    `projects-images/${profileId}/${generatedId}`
+  );
+  const arrayBuffer = await file.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
+  await storageRef.save(buffer);
 
+  const imagePath = storageRef.name;
 
   try {
     await db
-      .collection("projects")
+      .collection("profiles")
       .doc(profileId)
       .collection("projects")
-      .doc()
+      .doc(generatedId)
       .set({
+        id: generatedId,
         userId: session.user?.id,
         projectName,
         projectDescription,
