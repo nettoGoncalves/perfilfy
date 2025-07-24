@@ -1,6 +1,7 @@
 import "./globals.css";
 
 import { Red_Hat_Display } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const redHatDisplay = Red_Hat_Display({
   subsets: ["latin"],
@@ -14,9 +15,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${redHatDisplay.className} bg-background-primary text-content-body antialiased`}>
+      <body
+        className={`${redHatDisplay.className} bg-background-primary text-content-body antialiased`}
+      >
         {children}
       </body>
+      <GoogleAnalytics gaId="G-6J7T37DMR4" />
     </html>
   );
 }
