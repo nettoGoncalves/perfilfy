@@ -97,7 +97,7 @@ export default function newProject({ profileId }: { profileId: string }) {
                 id="imageInput"
                 accept="image/*"
                 className="hidden"
-                onChange={(e) => setProjectImage(handleImageInput(e))}
+                onChange={(e) => setProjectImage(handleImageInput(e) ?? "")}
               />
             </div>
             <div className="flex flex-col gap-4 w-[293px]">

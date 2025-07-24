@@ -37,7 +37,7 @@ export default async function UserCard({
       <div className="size-48">
         <img
           src={
-            (await getDownloadUrlFromPath(profileData?.imagePath)) ||
+            (await getDownloadUrlFromPath(profileData?.imagePath || "")) ||
             "/user.png"
           }
           alt="User Picture"
