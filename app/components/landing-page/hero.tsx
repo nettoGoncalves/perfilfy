@@ -32,7 +32,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={containerRef} className="flex flex-col lg:flex-row h-screen">
+    <section ref={containerRef} className="flex flex-col lg:flex-row h-screen mb-[850px]  sm:mb-[650px] lg:mb-[150px]">
       <div className="w-full flex flex-col gap-2 lg:mt-[35vh] mt-[25vh] max-w-2xl mx-auto mb-12 lg:max-w-full lg:mx-0 lg:mb-0">
         <h1 className="sm:text-[52px] text-[42px] mb-4 font-bold text-accent-blue leading-[54px] text-center lg:text-start">
           Sua Identidade Profissional, Online e Pronta para Impressionar
@@ -48,9 +48,6 @@ export default function Hero() {
       </div>
       <div className="w-full flex items-center justify-center bg-[radial-gradient(circle_at_50%_50%,#60a5fa,transparent_55%)]">
         <div className="relative w-full h-[550px]">
-          {/* <div className="absolute -bottom-[7%] -right-[45%]">
-            <TotalVisits />
-          </div> */}
           <div data-parallax="1" className="absolute top-[50%] sm:left-[25%] left-0 z-10">
             <ProjectCard
               name="Modelo de Petição de Honorários"

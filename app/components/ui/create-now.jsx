@@ -20,6 +20,7 @@ export default function CreateNow() {
       </div>
       <Button
         className="w-full max-w-[362px] sm:w-fit"
+        variant="secondary"
         onClick={() => {
           signIn("google", {
             redirectTo: `/criar?link=${link}`,

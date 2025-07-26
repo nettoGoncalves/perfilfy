@@ -9,8 +9,8 @@ export default function Home() {
     <div className="max-w-7xl mx-auto px-4">
       <Header />
       <Hero />
-      {/* <Pricing />
-      <FAQ /> */}
+      <Pricing />
+      <FAQ />
       {/* <ComingSoon /> */}
     </div>
   );
