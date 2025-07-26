@@ -11,11 +11,9 @@ export default function ComingSoon() {
         </h2>
         <p className="text-center text-[18px] mb-4">
           Estamos preparando uma plataforma simples, eficiente e moderna para
-          que
-          <strong className="text-blue-800">
-            Peritos e Assistentes Técnicos
-          </strong>
-          tenham seu perfil profissional online em poucos minutos.
+          que <strong className="text-blue-800">
+            Peritos e Assistentes Técnicos 
+          </strong> tenham seu perfil profissional online em poucos minutos.
         </p>
         <p className="text-center text-[18px]">
           Com a <strong className="text-blue-800">Perfilfy</strong>, você poderá
