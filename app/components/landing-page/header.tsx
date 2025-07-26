@@ -26,8 +26,8 @@ export default async function Header() {
       {session && (
         <div className="sm:hidden">
           <DropdownMenu>
-            <DropdownMenuTrigger className="p-3 text-white rounded-xl font-bold whitespace-nowrap hover:opacity-95 disabled:opacity-70 bg-accent-blue">
-              <MenuIcon />
+            <DropdownMenuTrigger className="p-3 rounded-xl font-bold whitespace-nowrap hover:opacity-95 disabled:opacity-70 border-2">
+              <MenuIcon color="black" />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuLabel>{session.user.name}</DropdownMenuLabel>

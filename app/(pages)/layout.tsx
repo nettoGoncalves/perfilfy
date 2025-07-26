@@ -9,6 +9,16 @@ const poppins = Poppins({
   display: "swap",
 });
 
+
+export const metadata = {
+  title: "Perfilfy",
+  description: "Crie seu perfil profissional online em minutos. Perfilfy é a plataforma ideal para Peritos Judiciais e Assistentes Técnicos se destacarem na web.",
+  icons: {
+    icon: "/favicon.png",
+  },
+};
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
