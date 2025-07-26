@@ -8,12 +8,12 @@ import VideoExplanation from "../components/landing-page/video-explanation";
 export default function Home() {
   return (
     <div className="max-w-7xl mx-auto">
-      {/* <Header />
-      <Hero />
+      <Header />
+      {/* <Hero />
       <VideoExplanation />
       <Pricing />
       <FAQ /> */}
-      <ComingSoon />
+      {/* <ComingSoon /> */}
     </div>
   );
 }
