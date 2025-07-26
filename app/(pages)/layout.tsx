@@ -12,7 +12,7 @@ const poppins = Poppins({
 
 export const metadata = {
   title: "Perfilfy",
-  description: "Crie seu perfil profissional online em minutos. Perfilfy é a plataforma ideal para Peritos Judiciais e Assistentes Técnicos se destacarem na web.",
+  description: "Crie seu perfil profissional online em minutos. Perfilfy é a plataforma ideal para profissionais independentes se destacarem na web com uma presença online moderna e personalizada",
   icons: {
     icon: "/favicon.png",
   },
@@ -25,9 +25,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body
-        className={`${poppins.className} bg-white text-content-body antialiased`}
+        className={`${poppins.className} bg-gray-50 text-content-body antialiased`}
       >
         {children}
       </body>

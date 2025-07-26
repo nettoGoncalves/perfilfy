@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { MenuIcon } from "lucide-react";
+import { MenuIcon, User } from "lucide-react";
 
 export default async function Header() {
   const session = await auth();
@@ -19,10 +19,10 @@ export default async function Header() {
   const profileId = await getProfileId(session?.user?.id as string);
 
   return (
-    <div className="absolute top-0 left-0 right-0 max-w-7xl mx-auto flex items-center justify-between py-10 px-3 z-10">
-      <div className="flex">
+    <div className="absolute top-0 left-0 right-0 max-w-7xl mx-auto flex items-center justify-between py-10 px-4 z-10">
+      <Link href="/" className="flex cursor-pointer">
         <img src="/logo.png" className="w-[200px]" alt="Logo" />
-      </div>
+      </Link>
       {session && (
         <div className="sm:hidden">
           <DropdownMenu>
@@ -57,7 +57,7 @@ export default async function Header() {
           </Link>
         )}
         <form action={manageAuth}>
-          <Button>{session ? "Sair" : "Login"}</Button>
+          <Button>{session ? "Sair" : `Login`}</Button>
         </form>
       </div>
     </div>

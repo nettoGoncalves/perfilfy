@@ -9,14 +9,17 @@ export default function CreateNow() {
   const [link, setlink] = useState("");
 
   return (
-    <div className="flex items-center gap-2 w-full mt-[10vh]">
-      <span className="text-white text-xl">projectinbio.com</span>
-      <TextInput
-        placeholder="Seu Link"
-        value={link}
-        onChange={(e) => setlink(e.target.value)}
-      />
+    <div className="flex flex-col sm:flex-row items-center gap-2 w-full mt-[5vh] lg:justify-start justify-center">
+      <div className="flex items-center gap-2">
+        <span className="text-accent-blue-dark text-xl">perfilfy.com/</span>
+        <TextInput
+          placeholder="Seu Link"
+          value={link}
+          onChange={(e) => setlink(e.target.value)}
+        />
+      </div>
       <Button
+        className="w-full max-w-[362px] sm:w-fit"
         onClick={() => {
           signIn("google", {
             redirectTo: `/criar?link=${link}`,
