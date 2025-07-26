@@ -1,5 +1,5 @@
 {
-  "name": "projectinbio",
+  "name": "perfilfy",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,6 +13,7 @@
     "@next/third-parties": "^15.4.3",
     "@stripe/stripe-js": "^7.6.1",
     "browser-image-compression": "^2.0.2",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "firebase-admin": "^12.6.0",
     "lucide-react": "^0.525.0",
@@ -20,6 +21,7 @@
     "next-auth": "^5.0.0-beta.29",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "resend": "^4.7.0",
     "stripe": "^18.3.0",
     "tailwind-merge": "^3.3.1"
   },
@@ -29,6 +31,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "tailwindcss": "^4",
+    "tw-animate-css": "^1.3.6",
     "typescript": "^5"
   }
 }

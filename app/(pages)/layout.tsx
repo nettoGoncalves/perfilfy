@@ -1,11 +1,12 @@
 import "./globals.css";
 
-import { Red_Hat_Display } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-const redHatDisplay = Red_Hat_Display({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
 export default function RootLayout({
@@ -16,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${redHatDisplay.className} bg-background-primary text-content-body antialiased`}
+        className={`${poppins.className} bg-white text-content-body antialiased`}
       >
         {children}
       </body>

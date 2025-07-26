@@ -1,4 +1,5 @@
 import { db } from "@/app/lib/firebase";
+// import { resend } from "@/app/lib/resend";
 import stripe from "@/app/lib/stripe";
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
@@ -38,10 +39,18 @@ export async function POST(req: NextRequest) {
             paymentIntent.next_action?.boleto_display_details
               ?.hosted_voucher_url;
 
-          if (hostedVoucherUrl) {
-            const userEmail = event.data.object.customer_details?.email;
-            console.log("Enviar e-mail com boleto");
-          }
+          // if (hostedVoucherUrl) {
+          //   const userEmail = event.data.object.customer_details?.email;
+
+          //   if (userEmail)
+          //     resend.emails.send({
+          //       from: "onboarding@resend.dev",
+          //       to: userEmail,
+          //       subject: "Seu boleto",
+          //       text: `Seu boleto: ${hostedVoucherUrl}`
+          //       // react: EmailTemplate({ firstName: "John" }),
+          //     });
+          // }
         }
         break;
       case "checkout.session.async_payment_succeeded":
