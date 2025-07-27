@@ -8,9 +8,8 @@ export default function TextArea(
       {...props}
       className={cn(
         `
-            w-full p-3 bg-background-secondary text-white placeholder:text-content-placeholder 
-            rounded-xl border border-transparent hover:border-border-secondary hover:text-content-body
-            active:border-border-tertiary`,
+            w-full p-3 bg-gray-50 text-accent-blue-dark placeholder:text-content-placeholder 
+            rounded-xl border hover:border-border-secondary border-border-tertiary`,
         props.className
       )}
     />

@@ -14,10 +14,10 @@ export type ProfileData = {
   totalVisits: number;
   createdAt: number;
   socialMedias?: {
-    github: string;
+    whatsapp: string;
     instagram: string;
     linkedin: string;
-    twitter: string;
+    mail: string;
   };
   link1: Link;
   link2: Link;

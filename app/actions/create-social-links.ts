@@ -6,16 +6,16 @@ import { auth } from "../lib/auth";
 
 export async function createSocialLinks({
   profileId,
-  github,
+  whatsapp,
   instagram,
   linkedin,
-  twitter,
+  mail,
 }: {
   profileId: string;
-  github: string;
+  whatsapp: string;
   instagram: string;
   linkedin: string;
-  twitter: string;
+  mail: string;
 }) {
   const session = await auth();
 
@@ -24,10 +24,10 @@ export async function createSocialLinks({
   try {
     await db.collection("profiles").doc(profileId).update({
       socialMedias: {
-        github,
+        whatsapp,
         instagram,
         linkedin,
-        twitter,
+        mail,
       },
       updatedAt: Timestamp.now().toMillis(),
     });

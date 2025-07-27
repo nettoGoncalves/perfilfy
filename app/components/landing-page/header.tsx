@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { MenuIcon, User } from "lucide-react";
+import { MenuIcon } from "lucide-react";
 
 export default async function Header() {
   const session = await auth();
@@ -32,9 +32,11 @@ export default async function Header() {
             <DropdownMenuContent>
               <DropdownMenuLabel>{session.user.name}</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <Link href={`/${profileId}`}>
-                <DropdownMenuItem>Minha Página</DropdownMenuItem>
-              </Link>
+              {session &&  (
+                <Link href={`/${profileId}`}>
+                  <DropdownMenuItem>Minha Página</DropdownMenuItem>
+                </Link>
+              )}
               <form action={manageAuth}>
                 <button type="submit">
                   <DropdownMenuItem>Sair</DropdownMenuItem>
