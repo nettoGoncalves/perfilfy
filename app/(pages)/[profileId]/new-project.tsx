@@ -21,6 +21,8 @@ export default function newProject({ profileId }: { profileId: string }) {
   const [isCreatingProject, setIsCreatigProject] = useState(false);
 
   const handleOpenModal = () => {
+    console.log('oi');
+    
     setIsOpen(true);
   };
 
