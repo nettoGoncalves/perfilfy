@@ -44,7 +44,7 @@ export default function FAQ() {
       <h2 className="text-accent-blue font-bold mb-6 text-center text-4xl">Dúvidas Frequentes</h2>
       <Accordion type="single" collapsible>
         {faqItems.map((item) => (
-          <AccordionItem value={item.title}>
+          <AccordionItem key={item.title} value={item.title}>
             <AccordionTrigger className="text-accent-blue-dark">
               {item.title}
             </AccordionTrigger>

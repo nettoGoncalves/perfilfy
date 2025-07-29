@@ -67,7 +67,7 @@ export default function EditUserSection({
       <Modal isOpen={isModalOpen} setIsOpen={() => setIsModalOpen(false)}>
         <div className="bg-white p-8 rounded-[20px] flex flex-col justify-between gap-10 md:w-[620px] w-[300px]">
           <div className="flex flex-col items-center gap-3 text-xs">
-            <div className="md:max-w-[400px] md:w-full md:h-[400px] w-[200px] h-[200px] rounded-full bg-white overflow-hidden border">
+            <div className="md:max-w-[300px] md:w-full md:h-[300px] w-[200px] h-[200px] rounded-full bg-white overflow-hidden border">
               {profilePic ? (
                 <img
                   src={profilePic}

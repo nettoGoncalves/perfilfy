@@ -14,6 +14,7 @@ export default function ProjectCard({
   name,
   buttonText,
   description,
+  className
 }: {
   project?: ProjectData;
   isOwner?: boolean;
@@ -21,6 +22,7 @@ export default function ProjectCard({
   name?: string;
   buttonText?: string;
   description?: string;
+  className?: string
 }) {
   const { profileId } = useParams();
   const formattedUrl = formatUrl(project?.projectUrl || "");
@@ -32,8 +34,8 @@ export default function ProjectCard({
 
   return (
     <>
-      <div className="min-h-[350px] max-w-72 flex flex-col gap-5 bg-white p-3 rounded-[20px] shadow-2xl">
-        <div className="h-40 flex-shrink-0 max-w-[340px]">
+      <div className={`${className} min-h-[350px] md:max-w-72 flex flex-col gap-5 bg-white p-3 rounded-[20px] shadow-2xl`}>
+        <div className="h-40 flex-shrink-0">
           <img
             src={img}
             alt="Projeto"

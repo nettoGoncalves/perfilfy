@@ -19,7 +19,7 @@ export default async function Header() {
   const profileId = await getProfileId(session?.user?.id as string);
 
   return (
-    <div className="absolute top-0 left-0 right-0 max-w-7xl mx-auto flex items-center justify-between py-10 px-4 z-10">
+    <header className="absolute top-0 left-0 right-0 max-w-7xl mx-auto flex items-center justify-between py-10 px-4 z-20">
       <Link href="/" className="flex cursor-pointer">
         <img src="/logo.png" className="w-[200px]" alt="Logo" />
       </Link>
@@ -62,6 +62,6 @@ export default async function Header() {
           <Button>{session ? "Sair" : `Login`}</Button>
         </form>
       </div>
-    </div>
+    </header>
   );
 }

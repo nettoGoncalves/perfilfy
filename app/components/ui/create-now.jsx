@@ -19,8 +19,7 @@ export default function CreateNow() {
         />
       </div>
       <Button
-        className="w-full max-w-[362px] sm:w-fit"
-        variant="secondary"
+        className="w-full max-w-[362px] sm:w-fit bg-[linear-gradient(90deg,#1e3a8a_0%,#38bdf8_100%)]"
         onClick={() => {
           signIn("google", {
             redirectTo: `/criar?link=${link}`,

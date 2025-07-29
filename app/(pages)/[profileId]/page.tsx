@@ -16,6 +16,7 @@ import {
 } from "@/app/lib/firebase";
 import { increaseProfileVisits } from "@/app/actions/increase-profile-visits";
 import ProjectsSection from "@/app/components/commons/projects-section";
+import ScrollDown from "@/app/components/ui/scroll-down";
 
 export default async function ProfilePage({
   params,
@@ -55,7 +56,12 @@ export default async function ProfilePage({
         </div>
       )}
       <UserSection isOwner={isOwner} profileData={profileData} />
-      <ProjectsSection isOwner={isOwner} profileId={profileId} projects={projects} img={await getDownloadUrlsFromPaths({ projects })} />
+      <ProjectsSection
+        isOwner={isOwner}
+        profileId={profileId}
+        projects={projects}
+        img={await getDownloadUrlsFromPaths({ projects })}
+      />
       {/* <div className="w-full flex justify-center content-start gap-4 flex-wrap overflow-y-auto">
         {projects.map(async (project) => (
           <ProjectCard
@@ -72,6 +78,9 @@ export default async function ProfilePage({
           <TotalVisits totalVisits={profileData.totalVisits} showBar />
         </div>
       )} */}
+      <div className="fixed bottom-2 left-1/2 -translate-x-1/2">
+        <ScrollDown heroId="hero" targetId="projects" />
+      </div>
     </main>
   );
 }

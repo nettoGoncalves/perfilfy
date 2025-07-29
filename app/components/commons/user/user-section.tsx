@@ -8,6 +8,7 @@ import { formatUrl } from "@/app/lib/utils";
 import EditUserSection from "./edit-user-section";
 import { getDownloadUrlFromPath } from "@/app/lib/firebase";
 import ScrollDown from "../../ui/scroll-down";
+import { useRef } from "react";
 
 export default async function UserSection({
   profileData,
@@ -32,7 +33,7 @@ export default async function UserSection({
   };
 
   return (
-    <section className="w-full h-screen flex flex-col lg:flex-row lg:justify-center max-w-7xl m-auto gap-5 items-center p-5">
+    <section id="hero" className="w-full h-screen flex flex-col lg:flex-row lg:justify-center max-w-7xl m-auto gap-5 items-center p-5">
       <img
         src={
           (await getDownloadUrlFromPath(profileData?.imagePath || "")) ||
@@ -94,9 +95,6 @@ export default async function UserSection({
             )}
           </div>
         </div>
-      </div>
-      <div className="fixed bottom-2 left-1/2 -translate-x-1/2">
-        <ScrollDown targetId="" />
       </div>
       {/* <div className="flex flex-col gap-3 w-full min-h-[172px]">
         <div className="w-full flex flex-col items-center gap-3">
