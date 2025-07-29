@@ -52,7 +52,7 @@ export default function ScrollDown({
       className="flex flex-col items-center gap-1 cursor-pointer"
       onClick={handleClick}
     >
-      <span className="text-gray-600 text-xl">{label}</span>
+      <span className="text-gray-600 text-xl hidden md:inline">{label}</span>
       <ChevronDown className="animate-bounce w-8 h-7 text-gray-700" />
     </div>
   );

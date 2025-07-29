@@ -55,10 +55,10 @@ export default function Hero() {
             className="absolute top-[50%] sm:left-[25%] left-0 z-10"
           >
             <ProjectCard
+              className="max-w-[300px]"
               name="Modelo de Petição de Honorários"
               description="Documento base para solicitar honorários de forma profissional e fundamentada."
               img="projeto1.jpg"
-              isOwner
             />
           </div>
           <div
@@ -66,10 +66,10 @@ export default function Hero() {
             className="absolute top-0 lg:right-3.5 sm:right-[15%] right-0 z-10"
           >
             <ProjectCard
+              className="max-w-[300px]"
               name="Artigo sobre Responsabilidade Técnica"
               description="Reflexões práticas sobre o papel e os limites da atuação técnica em processos judiciais."
               img="projeto2.jpg"
-              isOwner
             />
           </div>
           <div
@@ -77,10 +77,10 @@ export default function Hero() {
             className="absolute top-16 lg:left-3.5 left-[15%] -z-10 hidden sm:block"
           >
             <ProjectCard
+              className="max-w-[300px]"
               name="Checklist para Nomeações"
               description="Uma lista prática do que revisar antes de aceitar um novo caso."
               img="projeto3.jpg"
-              isOwner
             />
           </div>
         </div>

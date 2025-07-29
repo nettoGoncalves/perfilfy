@@ -65,31 +65,36 @@ export default function EditUserSection({
         <UserPen />
       </button>
       <Modal isOpen={isModalOpen} setIsOpen={() => setIsModalOpen(false)}>
-        <div className="bg-white p-8 rounded-[20px] flex flex-col justify-between gap-10 md:w-[620px] w-[300px]">
-          <div className="flex flex-col items-center gap-3 text-xs">
-            <div className="md:max-w-[300px] md:w-full md:h-[300px] w-[200px] h-[200px] rounded-full bg-white overflow-hidden border">
-              {profilePic ? (
-                <img
-                  src={profilePic}
-                  alt="Profile Picture"
-                  className="object-cover object-center size-full"
-                />
-              ) : (
-                <button
-                  onClick={() => triggerImageInput("profile-pic-input")}
-                  className="w-full h-full"
-                >
-                  400x400
-                </button>
-              )}
+        <div className="bg-white p-8 rounded-[20px] flex flex-col gap-10">
+          <h2 className="text-accent-blue font-bold text-xl">Fale sobre você</h2>
+          <div className="flex flex-col md:flex-row gap-5">
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-[150px] h-[150px] rounded-full bg-white overflow-hidden border">
+                {profilePic ? (
+                  <img
+                    src={profilePic}
+                    alt="Profile Picture"
+                    className="object-cover object-center w-full h-full"
+                  />
+                ) : (
+                  <button
+                    onClick={() => triggerImageInput("profile-pic-input")}
+                    className="w-full h-full"
+                  >
+                    400x400
+                  </button>
+                )}
+              </div>
+              <button
+                onClick={() => triggerImageInput("profile-pic-input")}
+                className="text-white flex items-center gap-2"
+              >
+                <ArrowUpFromLine color="black" className="size-4" />
+                <span className="text-accent-blue-dark">
+                  Adicionar imagem
+                </span>
+              </button>
             </div>
-            <button
-              onClick={() => triggerImageInput("profile-pic-input")}
-              className="text-white flex items-center gap-2"
-            >
-              <ArrowUpFromLine color="black" className="size-4" />
-              <span className="text-accent-blue-dark">Coloque sua melhor foto</span>
-            </button>
             <input
               type="file"
               className="hidden"
@@ -97,38 +102,45 @@ export default function EditUserSection({
               id="profile-pic-input"
               onChange={(e) => setProfilePic(handleImageInput(e))}
             />
-            <div className="flex flex-col gap-1 w-full">
-              <label htmlFor="your-name" className="text-accent-blue-dark">
-                Seu nome
-              </label>
-              <TextInput
-                id="your-name"
-                placeholder="Digite seu nome"
-                value={yourName}
-                onChange={(e) => setYourName(e.target.value)}
-              />
+            <div className="flex flex-col gap-3 w-[293px]">
+              <div className="flex flex-col gap-1 w-full">
+                <label htmlFor="your-name" className="text-accent-blue-dark font-bold">
+                  Seu nome
+                </label>
+                <TextInput
+                  id="your-name"
+                  placeholder="Digite seu nome"
+                  value={yourName}
+                  onChange={(e) => setYourName(e.target.value)}
+                />
+              </div>
+              <div className="flex flex-col gap-1 w-full">
+                <label
+                  htmlFor="your-description"
+                  className="text-accent-blue-dark font-bold"
+                >
+                  Descrição
+                </label>
+                <TextArea
+                  id="your-description"
+                  placeholder="Fale um pouco sobre você"
+                  className="h-36"
+                  value={yourDescription}
+                  onChange={(e) => setYourDescription(e.target.value)}
+                />
+              </div>
+              <div className="flex gap-5 justify-end">
+                <button
+                  className="font-bold text-accent-blue-dark"
+                  onClick={() => setIsModalOpen(false)}
+                >
+                  Voltar
+                </button>
+                <Button onClick={handleSaveProfile} disabled={isSavingProfile}>
+                  Salvar
+                </Button>
+              </div>
             </div>
-            <div className="flex flex-col gap-1 w-full">
-              <label htmlFor="your-description" className="text-accent-blue-dark">Descrição</label>
-              <TextArea
-                id="your-description"
-                placeholder="Fale um pouco sobre você"
-                className="h-36"
-                value={yourDescription}
-                onChange={(e) => setYourDescription(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="flex gap-4 justify-end">
-            <button
-              className="font-bold text-white"
-              onClick={() => setIsModalOpen(false)}
-            >
-              Voltar
-            </button>
-            <Button onClick={handleSaveProfile} disabled={isSavingProfile}>
-              Salvar
-            </Button>
           </div>
         </div>
       </Modal>

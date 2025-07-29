@@ -66,8 +66,8 @@ export default function newProject({ profileId }: { profileId: string }) {
       </button>
       <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
         <div className="bg-white p-8 rounded-[20px] flex flex-col justify-between gap-10">
-          <p className="text-accent-blue-dark font-bold text-xl">Novo card</p>
-          <div className="flex gap-10">
+          <h2 className="text-accent-blue-dark font-bold text-xl">Novo card</h2>
+          <div className="flex flex-col md:flex-row gap-10">
             <div className="flex flex-col items-center gap-3 text-xs">
               <div className="w-[100px] h-[100px] rounded-xl bg-white overflow-hidden border">
                 {projectImage ? (

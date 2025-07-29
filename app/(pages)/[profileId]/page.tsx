@@ -17,6 +17,7 @@ import {
 import { increaseProfileVisits } from "@/app/actions/increase-profile-visits";
 import ProjectsSection from "@/app/components/commons/projects-section";
 import ScrollDown from "@/app/components/ui/scroll-down";
+import LinksFooter from "@/app/components/commons/links-footer";
 
 export default async function ProfilePage({
   params,
@@ -62,23 +63,13 @@ export default async function ProfilePage({
         projects={projects}
         img={await getDownloadUrlsFromPaths({ projects })}
       />
-      {/* <div className="w-full flex justify-center content-start gap-4 flex-wrap overflow-y-auto">
-        {projects.map(async (project) => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-            isOwner={isOwner}
-            img={(await getDownloadUrlFromPath(project.imagePath)) || ""}
-          />
-        ))}
-        {isOwner && <NewProject profileId={profileId} />}
-      </div> */}
       {/* {isOwner && (
         <div className="fixed bottom-4 right-0 left-0 w-min mx-auto">
           <TotalVisits totalVisits={profileData.totalVisits} showBar />
         </div>
       )} */}
-      <div className="fixed bottom-2 left-1/2 -translate-x-1/2">
+      <LinksFooter profileData={profileData} isOwner={isOwner} />
+      <div className="fixed bottom-2 -right-2 md:left-1/2 -translate-x-1/2">
         <ScrollDown heroId="hero" targetId="projects" />
       </div>
     </main>
