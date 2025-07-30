@@ -46,7 +46,7 @@ export default async function ProfilePage({
 
   return (
     <main className="relative h-screen">
-      {!session?.user.isTrial && session?.user.isSubscribed && (
+      {session?.user.isTrial && !session?.user.isSubscribed && (
         <div className="fixed bottom-0 left-0 w-full flex flex-col md:flex-row justify-center items-center gap-1 py-2 bg-white shadow-2xl z-50">
           <span className="text-accent-blue-dark">Você está usando a versão trial.</span>
           <Link href={`/${profileId}/upgrade`}>
