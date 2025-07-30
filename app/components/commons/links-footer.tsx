@@ -46,7 +46,7 @@ export default function LinksFooter({
           <Link
             href={formatUrl(profileData?.link2.url)}
             target="_blank"
-            className="underline hover:text-accent-blue-dark"
+            className="text-xl underline hover:text-accent-blue-dark"
           >
             {profileData?.link2.title}
           </Link>
@@ -55,7 +55,7 @@ export default function LinksFooter({
           <Link
             href={formatUrl(profileData?.link3.url)}
             target="_blank"
-            className="underline hover:text-accent-blue-dark"
+            className="text-xl underline hover:text-accent-blue-dark"
           >
             {profileData?.link3.title}
           </Link>
