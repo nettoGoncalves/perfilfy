@@ -2,6 +2,7 @@ import "./globals.css";
 
 import { Poppins } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Header from "../components/landing-page/header";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -9,15 +10,25 @@ const poppins = Poppins({
   display: "swap",
 });
 
+
+export const metadata = {
+  title: "Perfilfy",
+  description: "Crie seu perfil profissional online em minutos. Perfilfy é a plataforma ideal para profissionais independentes se destacarem na web com uma presença online moderna e personalizada",
+  icons: {
+    icon: "/favicon.png",
+  },
+};
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body
-        className={`${poppins.className} bg-white text-content-body antialiased`}
+        className={`${poppins.className} bg-gray-50 text-content-body antialiased`}
       >
         {children}
       </body>

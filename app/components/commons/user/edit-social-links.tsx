@@ -1,6 +1,12 @@
 "use client";
 
-import { Github, Instagram, Linkedin, Plus, Twitter } from "lucide-react";
+import {
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone,
+  Plus,
+} from "lucide-react";
 import { startTransition, useState } from "react";
 import Modal from "../../ui/modal";
 import { useParams } from "next/navigation";
@@ -13,19 +19,19 @@ export default function EditSocialLinks({
   socialMedias,
 }: {
   socialMedias?: {
-    github: string;
+    whatsapp: string;
     instagram: string;
     linkedin: string;
-    twitter: string;
+    mail: string;
   };
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSavingSocialLinks, setIsSavingSocialLinks] = useState(false);
 
-  const [github, setGithub] = useState(socialMedias?.github || "");
+  const [whatsapp, setWhatsapp] = useState(socialMedias?.whatsapp || "");
   const [instagram, setInstagram] = useState(socialMedias?.instagram || "");
   const [linkedin, setLinkedin] = useState(socialMedias?.linkedin || "");
-  const [twitter, setTwitter] = useState(socialMedias?.twitter || "");
+  const [mail, setMail] = useState(socialMedias?.mail || "");
   const { profileId } = useParams();
 
   const router = useRouter();
@@ -37,10 +43,10 @@ export default function EditSocialLinks({
 
     await createSocialLinks({
       profileId: profileId as string,
-      github,
+      whatsapp,
       instagram,
       linkedin,
-      twitter,
+      mail,
     });
 
     startTransition(() => {
@@ -54,30 +60,30 @@ export default function EditSocialLinks({
     <>
       <button
         onClick={() => setIsModalOpen(true)}
-        className="p-3 rounded-xl bg-[#1E1E1E] hover:bg-[#2E2E2E]"
+        className="p-3 rounded-xl border hover:border-black/20"
       >
         <Plus />
       </button>
       <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen}>
-        <div className="bg-background-primary p-8 rounded-[20px] flex flex-col justify-between gap-10 w-[514px]">
-          <p className="text-white font-bold text-xl">
+        <div className="bg-white p-8 rounded-[20px] flex flex-col justify-between gap-10 sm:w-[514px] w-full">
+          <p className="text-accent-blue-dark font-bold text-xl text-center">
             Adicionar redes sociais
           </p>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2 w-full">
-              <Github />
+              <Phone />
               <TextInput
                 type="text"
-                placeholder="Link do GitHub"
-                value={github}
-                onChange={(e) => setGithub(e.target.value)}
+                placeholder="Link para o Whatsapp"
+                value={whatsapp}
+                onChange={(e) => setWhatsapp(e.target.value)}
               />
             </div>
             <div className="flex items-center gap-2 w-full">
               <Linkedin />
               <TextInput
                 type="text"
-                placeholder="Link do Linkedin"
+                placeholder="Link para o Linkedin"
                 value={linkedin}
                 onChange={(e) => setLinkedin(e.target.value)}
               />
@@ -86,25 +92,25 @@ export default function EditSocialLinks({
               <Instagram />
               <TextInput
                 type="text"
-                placeholder="Link do Instagram"
+                placeholder="Link para o Instagram"
                 value={instagram}
                 onChange={(e) => setInstagram(e.target.value)}
               />
             </div>
             <div className="flex items-center gap-2 w-full">
-              <Twitter />
+              <Mail />
               <TextInput
                 type="text"
-                placeholder="Link do Twitter"
-                value={twitter}
-                onChange={(e) => setTwitter(e.target.value)}
+                placeholder="Link o seu e-mail"
+                value={mail}
+                onChange={(e) => setMail(e.target.value)}
               />
             </div>
           </div>
           <div className="flex gap-4 justify-end">
             <button
               onClick={() => setIsModalOpen(false)}
-              className="font-bold text-white"
+              className="font-bold text-accent-blue"
             >
               Voltar
             </button>

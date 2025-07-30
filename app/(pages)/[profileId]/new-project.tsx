@@ -20,7 +20,7 @@ export default function newProject({ profileId }: { profileId: string }) {
   const [projectImage, setProjectImage] = useState("");
   const [isCreatingProject, setIsCreatigProject] = useState(false);
 
-  const handleOpenModal = () => {
+  const handleOpenModal = () => {    
     setIsOpen(true);
   };
 
@@ -59,17 +59,17 @@ export default function newProject({ profileId }: { profileId: string }) {
     <>
       <button
         onClick={handleOpenModal}
-        className="w-[340px] h-[132px] rounded-[20px] bg-background-secondary flex items-center gap-2 justify-center hover:border border-dashed border-border-secondary"
+        className="p-4 rounded-[20px] flex items-center gap-2 justify-center border border-accent-blue-dark/60 hover:border-accent-blue-dark group w-full md:w-fit mb-4 md:mb-0"
       >
-        <Plus className="size-10 text-accent-green" />
-        <span>Novo Projeto</span>
+        <Plus className="text-accent-blue-dark/60 group-hover:text-accent-blue-dark" />
+        <span className="text-accent-blue-dark/60 group-hover:text-accent-blue-dark">Novo Card</span>
       </button>
       <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-        <div className="bg-background-primary p-8 rounded-[20px] flex flex-col justify-between gap-10">
-          <p className="text-white font-bold text-xl">Novo projeto</p>
-          <div className="flex gap-10">
+        <div className="bg-white p-8 rounded-[20px] flex flex-col justify-between gap-10">
+          <h2 className="text-accent-blue-dark font-bold text-xl">Novo card</h2>
+          <div className="flex flex-col md:flex-row gap-10">
             <div className="flex flex-col items-center gap-3 text-xs">
-              <div className="w-[100px] h-[100px] rounded-xl bg-background-tertiary overflow-hidden">
+              <div className="w-[100px] h-[100px] rounded-xl bg-white overflow-hidden border">
                 {projectImage ? (
                   <img
                     src={projectImage}
@@ -81,12 +81,12 @@ export default function newProject({ profileId }: { profileId: string }) {
                     onClick={() => triggerImageInput("imageInput")}
                     className="w-full h-full"
                   >
-                    100x100
+                    260x160
                   </button>
                 )}
               </div>
               <button
-                className="text-white flex items-center gap-2"
+                className="text-accent-blue-dark flex items-center gap-2"
                 onClick={() => triggerImageInput("imageInput")}
               >
                 <ArrowUpFromLine className="size-4" />
@@ -102,8 +102,8 @@ export default function newProject({ profileId }: { profileId: string }) {
             </div>
             <div className="flex flex-col gap-4 w-[293px]">
               <div className="flex flex-col gap-1">
-                <label htmlFor="project-name" className="text-white font-bold">
-                  Titulo do projeto
+                <label htmlFor="project-name" className="text-accent-blue-dark font-bold">
+                  Titulo do card
                 </label>
                 <TextInput
                   id="project-name"
@@ -114,7 +114,7 @@ export default function newProject({ profileId }: { profileId: string }) {
               <div className="flex flex-col gap-1">
                 <label
                   htmlFor="project-description"
-                  className="text-white font-bold"
+                  className="text-accent-blue-dark font-bold"
                 >
                   Descrição
                 </label>
@@ -126,8 +126,8 @@ export default function newProject({ profileId }: { profileId: string }) {
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <label htmlFor="project-url" className="text-white font-bold">
-                  URL do projeto
+                <label htmlFor="project-url" className="text-accent-blue-dark font-bold">
+                  URL
                 </label>
                 <TextInput
                   type="url"
@@ -140,7 +140,7 @@ export default function newProject({ profileId }: { profileId: string }) {
           </div>
           <div className="flex gap-4 justify-end">
             <button
-              className="font-bold text-white"
+              className="font-bold text-accent-blue-dark"
               onClick={() => setIsOpen(false)}
             >
               Voltar

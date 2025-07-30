@@ -2,6 +2,7 @@ import { cert, getApps, initializeApp } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import { getStorage } from "firebase-admin/storage";
 import "server-only";
+import { ProjectData } from "../server/get-profile-data";
 
 // Cetificado
 
@@ -25,7 +26,6 @@ if (!getApps().length)
 
 export const db = getFirestore();
 
-
 export const storage = getStorage().bucket();
 
 export async function getDownloadUrlFromPath(path: string) {
@@ -39,4 +39,29 @@ export async function getDownloadUrlFromPath(path: string) {
   });
 
   return url;
+}
+
+export async function getDownloadUrlsFromPaths({
+  projects,
+}: {
+  projects: ProjectData[];
+}) {
+  if (!projects || projects.length === 0) return [];
+
+  const urls = await Promise.all(
+    projects.map(async (project) => {
+      if (!project) return null;
+
+      const file = storage.file(project.imagePath);
+
+      const [url] = await file.getSignedUrl({
+        action: "read",
+        expires: "03-01-2500",
+      });
+
+      return url;
+    })
+  );
+
+  return urls.filter((url): url is string => typeof url === "string");
 }

@@ -77,19 +77,19 @@ export default function AddCustomLink({
     <>
       <button
         onClick={() => setIsModalOpen(true)}
-        className="p-3 rounded-xl bg-[#1E1E1E] hover:bg-[#2E2E2E]"
+        className="p-3 rounded-xl border hover:border-black/20"
       >
         <Plus />
       </button>
       <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen}>
-        <div className="bg-background-primary p-8 rounded-[20px] flex flex-col justify-between gap-10 w-[514px]">
-          <p className="text-white font-bold text-xl">
-            Adicionar links personalizados
+        <div className="bg-white p-8 rounded-[20px] flex flex-col justify-between gap-10 md:w-[514px] w-[320px]">
+          <p className="text-accent-blue-dark font-bold text-xl">
+            Destaque o que é importante pra você
           </p>
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-2">
+            <div className="flex flex-col md:flex-row items-center gap-2 p-3 border border-dashed">
               <div className="flex flex-col w-full">
-                <p>Tìtulo do link</p>
+                <p className="font-bold">Tìtulo do link</p>
                 <TextInput
                   placeholder="Digite o título"
                   value={link1.title}
@@ -107,9 +107,9 @@ export default function AddCustomLink({
                 />
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="flex flex-col w-full">
-                <p>Tìtulo do link</p>
+            <div className="flex flex-col md:flex-row items-center gap-2 p-3 border border-dashed">
+              <div className="flex flex-col w-full ">
+                <p className="font-bold">Tìtulo do link</p>
                 <TextInput
                   placeholder="Digite o título"
                   value={link2.title}
@@ -127,9 +127,9 @@ export default function AddCustomLink({
                 />
               </div>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-col md:flex-row items-center gap-2 p-3 border border-dashed">
               <div className="flex flex-col w-full">
-                <p>Tìtulo do link</p>
+                <p className="font-bold">Tìtulo do link</p>
                 <TextInput
                   placeholder="Digite o título"
                   value={link3.title}
@@ -151,7 +151,7 @@ export default function AddCustomLink({
           <div className="flex gap-4 justify-end">
             <button
               onClick={() => setIsModalOpen(false)}
-              className="font-bold text-white"
+              className="font-bold text-accent-blue-dark"
             >
               Voltar
             </button>

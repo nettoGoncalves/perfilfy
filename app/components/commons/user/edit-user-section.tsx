@@ -15,7 +15,7 @@ import { useParams, useRouter } from "next/navigation";
 import { saveProfile } from "@/app/actions/save-profile";
 import { ProfileData } from "@/app/server/get-profile-data";
 
-export default function EditUserCard({
+export default function EditUserSection({
   profileData,
 }: {
   profileData?: ProfileData;
@@ -42,15 +42,15 @@ export default function EditUserCard({
     if (!imagesInput.files) return;
 
     const compressedFile = await compressFiles(Array.from(imagesInput.files));
-    
+
     if (!profileId) return;
-    
+
     const formData = new FormData();
     formData.append("profileId", profileId as string);
     formData.append("profilePic", compressedFile[0]);
     formData.append("yourName", yourName);
     formData.append("yourDescription", yourDescription);
-    
+
     await saveProfile(formData);
 
     startTransition(() => {
@@ -65,23 +65,23 @@ export default function EditUserCard({
         <UserPen />
       </button>
       <Modal isOpen={isModalOpen} setIsOpen={() => setIsModalOpen(false)}>
-        <div className="bg-background-primary p-8 rounded-[20px] flex flex-col justify-between gap-10">
-          <p className="text-white font-bold text-xl">Editar perfil</p>
-          <div className="flex gap-10">
-            <div className="flex flex-col items-center gap-3 text-xs">
-              <div className="w-[100px] h-[100px] rounded-xl bg-background-tertiary overflow-hidden">
+        <div className="bg-white p-8 rounded-[20px] flex flex-col gap-10">
+          <h2 className="text-accent-blue font-bold text-xl">Fale sobre você</h2>
+          <div className="flex flex-col md:flex-row gap-5">
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-[150px] h-[150px] rounded-full bg-white overflow-hidden border">
                 {profilePic ? (
                   <img
                     src={profilePic}
                     alt="Profile Picture"
-                    className="object-cover object-center size-full"
+                    className="object-cover object-center w-full h-full"
                   />
                 ) : (
                   <button
                     onClick={() => triggerImageInput("profile-pic-input")}
                     className="w-full h-full"
                   >
-                    100x100
+                    400x400
                   </button>
                 )}
               </div>
@@ -89,20 +89,22 @@ export default function EditUserCard({
                 onClick={() => triggerImageInput("profile-pic-input")}
                 className="text-white flex items-center gap-2"
               >
-                <ArrowUpFromLine className="size-4" />
-                <span>Adicionar foto</span>
+                <ArrowUpFromLine color="black" className="size-4" />
+                <span className="text-accent-blue-dark">
+                  Adicionar imagem
+                </span>
               </button>
-              <input
-                type="file"
-                className="hidden"
-                accept="image/*"
-                id="profile-pic-input"
-                onChange={(e) => setProfilePic(handleImageInput(e))}
-              />
             </div>
-            <div className="flex flex-col gap-4 w-[293px]">
-              <div className="flex flex-col gap-1">
-                <label htmlFor="your-name" className="text-white font-bold">
+            <input
+              type="file"
+              className="hidden"
+              accept="image/*"
+              id="profile-pic-input"
+              onChange={(e) => setProfilePic(handleImageInput(e))}
+            />
+            <div className="flex flex-col gap-3 w-[293px]">
+              <div className="flex flex-col gap-1 w-full">
+                <label htmlFor="your-name" className="text-accent-blue-dark font-bold">
                   Seu nome
                 </label>
                 <TextInput
@@ -112,8 +114,13 @@ export default function EditUserCard({
                   onChange={(e) => setYourName(e.target.value)}
                 />
               </div>
-              <div className="flex flex-col gap-1">
-                <label htmlFor="your-description">Descrição</label>
+              <div className="flex flex-col gap-1 w-full">
+                <label
+                  htmlFor="your-description"
+                  className="text-accent-blue-dark font-bold"
+                >
+                  Descrição
+                </label>
                 <TextArea
                   id="your-description"
                   placeholder="Fale um pouco sobre você"
@@ -122,13 +129,18 @@ export default function EditUserCard({
                   onChange={(e) => setYourDescription(e.target.value)}
                 />
               </div>
+              <div className="flex gap-5 justify-end">
+                <button
+                  className="font-bold text-accent-blue-dark"
+                  onClick={() => setIsModalOpen(false)}
+                >
+                  Voltar
+                </button>
+                <Button onClick={handleSaveProfile} disabled={isSavingProfile}>
+                  Salvar
+                </Button>
+              </div>
             </div>
-          </div>
-          <div className="flex gap-4 justify-end">
-            <button className="font-bold text-white" onClick={() => setIsModalOpen(false)}>Voltar</button>
-            <Button onClick={handleSaveProfile} disabled={isSavingProfile}>
-              Salvar
-            </Button>
           </div>
         </div>
       </Modal>
