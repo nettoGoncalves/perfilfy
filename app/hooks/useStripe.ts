@@ -37,7 +37,17 @@ export function useStripe() {
         sessionId: data.sessionId,
       });
     } catch (error) {
-      console.error(error);
+      const response = await fetch("/api/stripe/create-checkout", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({ metadata, isSubscription }),
+      });
+
+      console.error("Erro ao criar checkout:", error);
+      const text = await response.text();
+      console.error("Resposta do servidor:", text);
     }
   }
 
