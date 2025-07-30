@@ -35,9 +35,9 @@ export async function POST(req: NextRequest) {
           const paymentIntent = await stripe.paymentIntents.retrieve(
             event.data.object.payment_intent.toString()
           );
-          const hostedVoucherUrl =
-            paymentIntent.next_action?.boleto_display_details
-              ?.hosted_voucher_url;
+          // const hostedVoucherUrl =
+          //   paymentIntent.next_action?.boleto_display_details
+          //     ?.hosted_voucher_url;
 
           // if (hostedVoucherUrl) {
           //   const userEmail = event.data.object.customer_details?.email;
