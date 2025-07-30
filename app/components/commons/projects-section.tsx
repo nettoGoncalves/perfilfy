@@ -92,7 +92,7 @@ export default function ProjectsSection({
         className={`${projects && projects.length <= 3 ? "justify-center!" : ""} flex flex-col md:flex-row md:justify-between items-center w-full max-w-[90%] mt-6`}
       >
         {isOwner && <NewProject profileId={profileId || ""} />}
-        {projects && projects.length > 3 && (
+        {/* {projects && projects.length > 3 && (
           <div className="flex gap-3">
             <button
               ref={prevRef}
@@ -107,7 +107,7 @@ export default function ProjectsSection({
               <ChevronRight className="text-accent-blue-dark/60 group-hover:text-accent-blue-dark size-7 transition" />
             </button>
           </div>
-        )}
+        )} */}
       </div>
     </section>
   );
