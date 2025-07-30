@@ -32,7 +32,7 @@ export default function LinksFooter({
       <h2 className="text-center font-bold text-accent-blue-dark text-[42px] mb-6">
         Descubra mais
       </h2>
-      <div className="max-w-7xl m-auto flex items-center justify-center gap-3">
+      <div className="max-w-7xl m-auto flex flex-col md:flex-row items-center justify-center gap-3">
         {profileData?.link1 && profileData?.link1.title != "" && (
           <Link
             href={formatUrl(profileData?.link1.url)}
