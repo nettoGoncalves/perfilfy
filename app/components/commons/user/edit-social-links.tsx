@@ -110,7 +110,7 @@ export default function EditSocialLinks({
           <div className="flex gap-4 justify-end">
             <button
               onClick={() => setIsModalOpen(false)}
-              className="font-bold text-white"
+              className="font-bold text-accent-blue"
             >
               Voltar
             </button>

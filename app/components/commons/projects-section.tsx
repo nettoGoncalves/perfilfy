@@ -30,7 +30,7 @@ export default function ProjectsSection({
   return (
     <section
       id="projects"
-      className="max-w-5xl flex flex-col items-center m-auto pb-20"
+      className="max-w-5xl flex flex-col items-center m-auto pt-32 pb-40"
     >
       {projects && projects.length > 3 ? (
         <Swiper

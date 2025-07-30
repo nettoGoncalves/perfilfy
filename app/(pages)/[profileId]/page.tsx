@@ -46,11 +46,11 @@ export default async function ProfilePage({
 
   return (
     <main className="relative h-screen">
-      {session?.user.isTrial && !session.user.isSubscribed && (
-        <div className="fixed top-0 left-0 w-full flex justify-center items-center gap-1 py-2 bg-background-tertiary">
-          <span>Você está usando a versão trial.</span>
+      {!session?.user.isTrial && session?.user.isSubscribed && (
+        <div className="fixed bottom-0 left-0 w-full flex flex-col md:flex-row justify-center items-center gap-1 py-2 bg-white shadow-2xl z-50">
+          <span className="text-accent-blue-dark">Você está usando a versão trial.</span>
           <Link href={`/${profileId}/upgrade`}>
-            <button className="text-accent-green font-bold">
+            <button className="text-accent-blue font-bold">
               Faça o upgrade agora!
             </button>
           </Link>
@@ -63,13 +63,13 @@ export default async function ProfilePage({
         projects={projects}
         img={await getDownloadUrlsFromPaths({ projects })}
       />
-      {/* {isOwner && (
-        <div className="fixed bottom-4 right-0 left-0 w-min mx-auto">
+      {isOwner && (
+        <div className="fixed top-4 right-0 left-0 md:w-[40%] mx-auto z-50">
           <TotalVisits totalVisits={profileData.totalVisits} showBar />
         </div>
-      )} */}
+      )}
       <LinksFooter profileData={profileData} isOwner={isOwner} />
-      <div className="fixed bottom-2 -right-2 md:left-1/2 -translate-x-1/2">
+      <div className="fixed bottom-8 -right-2 md:left-1/2 -translate-x-1/2">
         <ScrollDown heroId="hero" targetId="projects" />
       </div>
     </main>

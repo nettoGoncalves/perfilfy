@@ -46,9 +46,9 @@ export default function CreateLinkForm() {
   return (
     <>
       <form onSubmit={handleSubmit} className="w-full flex items-center gap-2">
-        <span className="text-white">projectinbio.com/</span>
+        <span className="text-accent-blue-dark">perfilfy.com/</span>
         <TextInput value={link} onChange={handleLinkChange} />
-        <Button className="w-[126px]">Criar</Button>
+        <Button className="w-[126px] bg-[linear-gradient(90deg,#1e3a8a_0%,#38bdf8_100%)]">Criar</Button>
       </form>
       <div>
         <span className="text-accent-pink">{error}</span>

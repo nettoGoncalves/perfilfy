@@ -19,7 +19,7 @@ export default async function UserSection({
 }) {
 
   return (
-    <section id="hero" className="w-full h-screen flex flex-col lg:flex-row lg:justify-center max-w-7xl m-auto gap-5 items-center p-5">
+    <section id="hero" className="w-full h-screen flex flex-col lg:flex-row lg:justify-center max-w-7xl m-auto gap-5 items-center p-5 pt-32 md:pt-0">
       <img
         src={
           (await getDownloadUrlFromPath(profileData?.imagePath || "")) ||

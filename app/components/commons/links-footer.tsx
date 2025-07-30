@@ -28,16 +28,16 @@ export default function LinksFooter({
   };
 
   return (
-    <footer>
-      <h2 className="text-center font-bold text-accent-blue-dark text-[42px]">
-        Veja mais
+    <footer className="pb-22">
+      <h2 className="text-center font-bold text-accent-blue-dark text-[42px] mb-6">
+        Descubra mais
       </h2>
       <div className="max-w-7xl m-auto flex items-center justify-center gap-3">
         {profileData?.link1 && profileData?.link1.title != "" && (
           <Link
             href={formatUrl(profileData?.link1.url)}
             target="_blank"
-            className=""
+            className="text-xl underline hover:text-accent-blue-dark"
           >
             {profileData?.link1.title}
           </Link>
@@ -46,7 +46,7 @@ export default function LinksFooter({
           <Link
             href={formatUrl(profileData?.link2.url)}
             target="_blank"
-            className="w-full"
+            className="underline hover:text-accent-blue-dark"
           >
             {profileData?.link2.title}
           </Link>
@@ -55,7 +55,7 @@ export default function LinksFooter({
           <Link
             href={formatUrl(profileData?.link3.url)}
             target="_blank"
-            className="w-full"
+            className="underline hover:text-accent-blue-dark"
           >
             {profileData?.link3.title}
           </Link>

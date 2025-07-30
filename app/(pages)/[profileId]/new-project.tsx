@@ -59,7 +59,7 @@ export default function newProject({ profileId }: { profileId: string }) {
     <>
       <button
         onClick={handleOpenModal}
-        className="p-4 rounded-[20px] flex items-center gap-2 justify-center border border-accent-blue-dark/60 hover:border-accent-blue-dark group"
+        className="p-4 rounded-[20px] flex items-center gap-2 justify-center border border-accent-blue-dark/60 hover:border-accent-blue-dark group w-full md:w-fit mb-4 md:mb-0"
       >
         <Plus className="text-accent-blue-dark/60 group-hover:text-accent-blue-dark" />
         <span className="text-accent-blue-dark/60 group-hover:text-accent-blue-dark">Novo Card</span>
@@ -140,7 +140,7 @@ export default function newProject({ profileId }: { profileId: string }) {
           </div>
           <div className="flex gap-4 justify-end">
             <button
-              className="font-bold text-white"
+              className="font-bold text-accent-blue-dark"
               onClick={() => setIsOpen(false)}
             >
               Voltar
