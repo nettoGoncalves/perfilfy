@@ -26,7 +26,7 @@ export default function PlanButtons() {
         <Button
           onClick={() =>
             createStripeCheckout({
-              isSubscription: false,
+              isSubscription: true,
               metadata: { profileId },
             })
           }
@@ -57,7 +57,7 @@ export default function PlanButtons() {
             <Button
               onClick={() =>
                 createStripeCheckout({
-                  isSubscription: true,
+                  isSubscription: false,
                   metadata: { profileId },
                 })
               }
