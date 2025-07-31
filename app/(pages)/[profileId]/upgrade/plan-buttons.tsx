@@ -68,10 +68,12 @@ export default function PlanButtons() {
             </div>
             <Button
               onClick={() =>
-                createStripeCheckout({
-                  isSubscription: false,
-                  metadata: { profileId },
-                })
+                !session.user
+                  ? signIn("google", { callbackUrl: `/criar` })
+                  : createStripeCheckout({
+                      isSubscription: true,
+                      metadata: { profileId },
+                    })
               }
             >
               Assinar
