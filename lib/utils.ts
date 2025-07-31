@@ -1,5 +1,7 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { getProfileData } from "@/app/server/get-profile-data";
+import { Metadata } from "next";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

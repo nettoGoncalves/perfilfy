@@ -20,13 +20,45 @@ import ScrollDown from "@/app/components/ui/scroll-down";
 import LinksFooter from "@/app/components/commons/links-footer";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Perfilfy - Perfil",
-  description: "Crie seu perfil profissional online em minutos. Perfilfy é a plataforma ideal para profissionais independentes se destacarem na web com uma presença online moderna e personalizada",
-  icons: {
-    icon: "/favicon.png",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: { profileId: string };
+}): Promise<Metadata> {
+  const { profileId } = params;
+  const profileData = await getProfileData(profileId);
+
+  if (!profileData) return {};
+
+  const fullName = profileData.name || "Perfil Profissional";
+  const description = profileData.description;
+  const keywords = [
+    fullName,
+    `${fullName}`,
+    "perfil profissional",
+    "perfil digital",
+    "perfil online",
+    "Perfilfy",
+    "apresentação profissional",
+    "biografia profissional",
+  ].filter(Boolean);
+
+  return {
+    title: `${fullName} | Perfilfy`,
+    description,
+    keywords,
+    openGraph: {
+      title: `${fullName} | Perfilfy`,
+      description,
+      url: `https://perfilfy.com/${profileId}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${fullName} | Perfilfy`,
+      description,
+    },
+  };
+}
 
 export default async function ProfilePage({
   params,
@@ -57,7 +89,9 @@ export default async function ProfilePage({
     <main className="relative h-screen">
       {session?.user.isTrial && !session?.user.isSubscribed && (
         <div className="fixed bottom-0 left-0 w-full flex flex-col md:flex-row justify-center items-center gap-1 py-2 bg-white shadow-2xl z-50">
-          <span className="text-accent-blue-dark">Você está usando a versão trial.</span>
+          <span className="text-accent-blue-dark">
+            Você está usando a versão trial.
+          </span>
           <Link href={`/${profileId}/upgrade`}>
             <button className="text-accent-blue font-bold">
               Faça o upgrade agora!
