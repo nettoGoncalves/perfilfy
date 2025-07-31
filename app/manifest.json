@@ -1,0 +1,17 @@
+{
+  "name": "Perfilfy",
+  "short_name": "Perfilfy",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#111827",
+  "description": "Perfilfy é uma plataforma pensada para profissionais com baixa adoção tecnológica, como peritos judiciais e assistentes técnicos.",
+  "icons": [
+    {
+      "src": "/apple-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "lang": "pt-BR"
+}

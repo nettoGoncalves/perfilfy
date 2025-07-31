@@ -1,7 +1,17 @@
+import { Metadata } from "next";
 import FAQ from "../components/landing-page/faq";
 import Header from "../components/landing-page/header";
 import Hero from "../components/landing-page/hero";
 import Pricing from "../components/landing-page/pricing";
+import { getSEOTags } from "../lib/seo";
+
+export const metadata: Metadata = getSEOTags({
+  appName: "Perfilfy",
+  appDescription: "Crie seu perfil profissional online em minutos. Perfilfy é a plataforma ideal para profissionais independentes se destacarem na web com uma presença online moderna e personalizada",
+  keywords: ["criar currículo online profissional", "página pessoal para peritos judiciais", "perfil online para consultores", "presença digital para autônomos"],
+  appDomain: "https://perfilfy.com/",
+  canonicalUrlRelative: "/"
+})
 
 export default function Home() {
   return (

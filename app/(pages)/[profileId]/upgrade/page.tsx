@@ -1,5 +1,14 @@
 import Header from "@/app/components/landing-page/header";
 import PlanButtons from "./plan-buttons";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Perfilfy - Upgrade",
+  description: "Perfilfy - Upgrade",
+  icons: {
+    icon: "/favicon.png",
+  },
+};
 
 export default function UpgradePage() {
   return (

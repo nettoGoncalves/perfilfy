@@ -3,6 +3,16 @@ import Button from "@/app/components/ui/button";
 import TextInput from "@/app/components/ui/text-input";
 import { Rocket } from "lucide-react";
 import CreateLinkForm from "./create-link-form";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Perfilfy - Criar",
+  description: "Perfilfy - Criar",
+  icons: {
+    icon: "/favicon.png",
+  },
+};
+
 
 export default function CriarPage() {
   return (

@@ -35,7 +35,7 @@ export default function PlanButtons() {
         </div>
         <Button
           onClick={() =>
-            !session.user
+            !session
               ? signIn("google", { callbackUrl: `/criar` })
               : createStripeCheckout({
                   isSubscription: true,
@@ -68,7 +68,7 @@ export default function PlanButtons() {
             </div>
             <Button
               onClick={() =>
-                !session.user
+                !session
                   ? signIn("google", { callbackUrl: `/criar` })
                   : createStripeCheckout({
                       isSubscription: true,

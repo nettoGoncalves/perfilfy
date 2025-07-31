@@ -18,6 +18,15 @@ import { increaseProfileVisits } from "@/app/actions/increase-profile-visits";
 import ProjectsSection from "@/app/components/commons/projects-section";
 import ScrollDown from "@/app/components/ui/scroll-down";
 import LinksFooter from "@/app/components/commons/links-footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Perfilfy - Perfil",
+  description: "Crie seu perfil profissional online em minutos. Perfilfy é a plataforma ideal para profissionais independentes se destacarem na web com uma presença online moderna e personalizada",
+  icons: {
+    icon: "/favicon.png",
+  },
+};
 
 export default async function ProfilePage({
   params,
