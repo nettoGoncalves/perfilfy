@@ -1,12 +1,22 @@
 "use client";
-
 import Button from "@/app/components/ui/button";
 import { useStripe } from "@/app/hooks/useStripe";
+import { auth } from "@/app/lib/auth";
+import { getSession, signIn } from "next-auth/react";
 import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function PlanButtons() {
   const { createStripeCheckout } = useStripe();
   const { profileId } = useParams();
+  const [session, setSession] = useState<any>(null);
+
+  useEffect(() => {
+    (async () => {
+      const s = getSession();
+      setSession(s);
+    })();
+  }, []);
 
   return (
     <div className="flex flex-col md:flex-row items-center gap-9">
@@ -25,10 +35,12 @@ export default function PlanButtons() {
         </div>
         <Button
           onClick={() =>
-            createStripeCheckout({
-              isSubscription: true,
-              metadata: { profileId },
-            })
+            !session.user
+              ? signIn("google", { callbackUrl: `/criar` })
+              : createStripeCheckout({
+                  isSubscription: true,
+                  metadata: { profileId },
+                })
           }
           variant="secondary"
         >
