@@ -18,47 +18,19 @@ import { increaseProfileVisits } from "@/app/actions/increase-profile-visits";
 import ProjectsSection from "@/app/components/commons/projects-section";
 import ScrollDown from "@/app/components/ui/scroll-down";
 import LinksFooter from "@/app/components/commons/links-footer";
-import { Metadata } from "next";
+import { Metadata, ResolvingMetadata } from "next";
+import { getSEOTags } from "@/app/lib/seo";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { profileId: string };
-}): Promise<Metadata> {
-  const { profileId } = params;
-  const profileData = await getProfileData(profileId);
-
-  if (!profileData) return {};
-
-  const fullName = profileData.name || "Perfil Profissional";
-  const description = profileData.description;
-  const keywords = [
-    fullName,
-    `${fullName}`,
-    "perfil profissional",
-    "perfil digital",
-    "perfil online",
-    "Perfilfy",
-    "apresentação profissional",
-    "biografia profissional",
-  ].filter(Boolean);
-
-  return {
-    title: `${fullName} | Perfilfy`,
-    description,
-    keywords,
-    openGraph: {
-      title: `${fullName} | Perfilfy`,
-      description,
-      url: `https://perfilfy.com/${profileId}`,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${fullName} | Perfilfy`,
-      description,
-    },
-  };
-}
+export const metadata: Metadata = getSEOTags({
+  appName: "Perfilfy - Página Personalizada",
+  appDescription: "Perfilfy - Página Personalizada",
+  keywords: [
+    "página profissional",
+    "presença digital",
+    "página digital personalizado",
+  ],
+  appDomain: "https://perfilfy.com/",
+});
 
 export default async function ProfilePage({
   params,

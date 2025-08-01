@@ -13,7 +13,7 @@ export function getSEOTags({
   appDescription: string;
   keywords: string[];
   appDomain: string;
-  canonicalUrlRelative: string;
+  canonicalUrlRelative?: string;
   extraTags?: Metadata;
   locale?: string;
 }): Metadata {
