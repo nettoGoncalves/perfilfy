@@ -11,11 +11,11 @@ export const metadata: Metadata = getSEOTags({
     "Transforme sua reputação em presença com o seu Perfilfy — seu cartão de visitas digital profissional.",
   keywords: [
     "identidade profissional",
-    "página pessoal para peritos judiciais",
+    "cartão de visitas digital",
     "página profissional que reúne seus dados",
     "presença digital para autônomos",
-    "link na bio com projetos e currículo",
-    "página profissional"
+    "autoridade digital",
+    "cartão de visitas digital profissional"
   ],
   appDomain: "https://perfilfy.com/",
   canonicalUrlRelative: "/",
