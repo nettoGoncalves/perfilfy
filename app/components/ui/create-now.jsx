@@ -26,7 +26,7 @@ export default function CreateNow() {
           });
         }}
       >
-        Criar agora
+        Criar meu Perfilfy
       </Button>
     </div>
   );

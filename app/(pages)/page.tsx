@@ -6,9 +6,9 @@ import Pricing from "../components/landing-page/pricing";
 import { getSEOTags } from "../lib/seo";
 
 export const metadata: Metadata = getSEOTags({
-  appName: "Perfilfy",
+  appName: "Perfilfy – Seu cartão de visitas digital profissional",
   appDescription:
-    "Crie seu perfil profissional online em minutos. Perfilfy é a plataforma ideal para profissionais independentes se destacarem na web com uma presença online moderna e personalizada",
+    "Transforme sua reputação em presença com o seu Perfilfy — seu cartão de visitas digital profissional.",
   keywords: [
     "identidade profissional",
     "página pessoal para peritos judiciais",

@@ -41,11 +41,9 @@ export default function Hero() {
           confiança?
         </h1>
         <h2 className="text-xl text-accent-blue-dark leading-6 text-center lg:text-start">
-          Nem todo profissional precisa de um site completo. <br /> mas todo
-          profissional precisa ser encontrado com autoridade. Um{" "}
-          <strong>cartão de visitas digital</strong> apresenta quem você é, com{" "}
-          <strong>clareza e profissionalismo</strong>, exatamente quando isso
-          mais importa.
+          Apresente sua atuação profissional com clareza, autoridade e
+          praticidade. O Perfilfy é seu <strong>cartão de visitas digital</strong> personalizado, fácil de compartilhar e feito para gerar <strong>confiança</strong> em
+          quem te encontra.
         </h2>
         <CreateNow />
       </div>
