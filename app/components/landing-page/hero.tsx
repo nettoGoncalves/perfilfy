@@ -37,14 +37,15 @@ export default function Hero() {
     >
       <div className="w-full flex flex-col gap-2 lg:mt-[35vh] mt-[25vh] max-w-2xl mx-auto mb-12 lg:max-w-full lg:mx-0 lg:mb-0">
         <h1 className="sm:text-[52px] text-[42px] mb-4 font-bold text-accent-blue leading-[54px] text-center lg:text-start">
-          Sua Identidade Profissional, Online e Pronta para Impressionar
+          Quando alguém procura pelo seu nome, o que encontra transmite
+          confiança?
         </h1>
         <h2 className="text-xl text-accent-blue-dark leading-6 text-center lg:text-start">
-          Tenha um link personalizado para sua página profissional que reúne
-          seus dados, laudos e documentos,
-          <br />
-          com monitoramento simples de cliques para você acompanhar o interesse
-          no seu trabalho
+          Nem todo profissional precisa de um site completo. <br /> mas todo
+          profissional precisa ser encontrado com autoridade. Um{" "}
+          <strong>cartão de visitas digital</strong> apresenta quem você é, com{" "}
+          <strong>clareza e profissionalismo</strong>, exatamente quando isso
+          mais importa.
         </h2>
         <CreateNow />
       </div>

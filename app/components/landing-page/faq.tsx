@@ -10,38 +10,40 @@ export default function FAQ() {
     {
       title: "O que é o Perfilfy e como ele funciona?",
       description:
-        "O Perfilfy é uma plataforma que permite criar uma página profissional com um link personalizado. Nela, você pode exibir seus projetos, serviços, redes sociais e contar com estatísticas de cliques em cada item.",
+        "O Perfilfy é um cartão de visitas digital criado para fortalecer sua presença profissional. Você monta seu perfil com suas informações mais importantes e compartilha um link personalizado sempre que quiser causar uma boa primeira impressão.",
     },
     {
-      title: "O Perfilfy oferece um período de teste gratuito?",
+      title: "Preciso de um site tradicional para usar o Perfilfy?",
       description:
-        "Sim! Você pode testar todos os recursos da plataforma gratuitamente por 3 dias antes de decidir pela assinatura.",
+        "Não. O Perfilfy surgiu justamente como alternativa aos sites tradicionais. É mais simples, direto ao ponto e pensado para profissionais que querem ser encontrados com credibilidade, sem precisar manter um site completo.",
     },
     {
-      title: "Consigo personalizar minha página?",
+      title: "Quem pode se beneficiar do Perfilfy?",
       description:
-        "Sim! Você pode personalizar o título da sua página, adicionar seus projetos, redes sociais e escolher o identificador do seu link personalizado.",
+        "Profissionais que precisam ser encontrados com confiança — como peritos, assistentes técnicos, contadores, consultores, advogados, autônomos e liberais em geral. Especialmente útil para quem recebe indicações e quer causar uma boa impressão logo na primeira busca.",
     },
     {
-      title: "Preciso saber programar para usar o Perfilfy?",
+      title: "Consigo editar as informações do meu cartão de visitas?",
       description:
-        "Não! O Perfilfy foi criado para ser fácil de usar. Basta preencher seus dados e escolher o que deseja exibir — sem precisar entender nada de código.",
+        "Sim! Você pode atualizar sua biografia, áreas de atuação, contatos, documentos e redes sociais a qualquer momento — de forma simples e rápida.",
     },
     {
-      title: "O que acontece se eu cancelar minha assinatura?",
+      title: "É necessário saber mexer com tecnologia?",
       description:
-        "Você poderá usar todos os recursos normalmente até o fim do seu período pago. Após esse prazo, sua página será desativada e ficará indisponível para visualização.",
+        "De forma alguma. O Perfilfy foi feito para ser acessível até para quem não tem familiaridade com ferramentas digitais. Em poucos minutos você já tem seu cartão pronto para usar.",
     },
     {
-      title: "Posso compartilhar minha página do Perfilfy?",
+      title: "Como posso usar meu link do Perfilfy?",
       description:
-        "Sim! Sua página tem um link exclusivo e personalizado, pronto para ser compartilhado em redes sociais, currículos e propostas.",
+        "Você pode colocar seu link na bio das redes sociais, assinatura de e-mail, currículo, cartão de visitas impresso, QR Code ou até mesmo enviá-lo diretamente para contatos e parceiros.",
     },
   ];
 
   return (
     <section className="pb-[120px]">
-      <h2 className="text-accent-blue font-bold mb-6 text-center text-4xl">Dúvidas Frequentes</h2>
+      <h2 className="text-accent-blue font-bold mb-6 text-center text-4xl">
+        Dúvidas Frequentes
+      </h2>
       <Accordion type="single" collapsible>
         {faqItems.map((item) => (
           <AccordionItem key={item.title} value={item.title}>
