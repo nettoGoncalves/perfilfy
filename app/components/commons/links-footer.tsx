@@ -35,7 +35,7 @@ export default function LinksFooter({
       <div className="max-w-7xl m-auto flex flex-col md:flex-row items-center justify-center gap-3">
         {profileData?.link1 && profileData?.link1.title != "" && (
           <Link
-            href={formatUrl(profileData?.link1.url)}
+            href={profileData?.link1.url}
             target="_blank"
             className="text-xl underline hover:text-accent-blue-dark"
           >
@@ -44,7 +44,7 @@ export default function LinksFooter({
         )}
         {profileData?.link2 && profileData?.link2.title != "" && (
           <Link
-            href={formatUrl(profileData?.link2.url)}
+            href={profileData?.link2.url}
             target="_blank"
             className="text-xl underline hover:text-accent-blue-dark"
           >
@@ -53,7 +53,7 @@ export default function LinksFooter({
         )}
         {profileData?.link3 && profileData?.link3.title != "" && (
           <Link
-            href={formatUrl(profileData?.link3.url)}
+            href={profileData?.link3.url}
             target="_blank"
             className="text-xl underline hover:text-accent-blue-dark"
           >
