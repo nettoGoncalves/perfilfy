@@ -83,7 +83,7 @@ export default async function ProfilePage({
           <TotalVisits totalVisits={profileData.totalVisits} showBar />
         </div>
       )}
-      <LinksFooter profileData={profileData} isOwner={isOwner} />
+      {/* <LinksFooter profileData={profileData} isOwner={isOwner} /> */}
       <div className="fixed bottom-8 -right-2 md:left-1/2 -translate-x-1/2">
         <ScrollDown heroId="hero" targetId="projects" />
       </div>
